@@ -255,12 +255,12 @@ a { color: inherit; }
   .cv-title { font-size: 9pt; color: #7a4d10; margin-top: 1pt; }
   .cv-contact { font-size: 8pt; color: #333; margin-top: 3pt; line-height: 1.45; }
 
-  .cv-block { margin-bottom: 5.5pt; }
+  .cv-block { margin-bottom: 4pt; }
   .cv-block h2 { font-size: 7.8pt; color: #7a4d10; margin-bottom: 4.5pt; padding-bottom: 2pt; }
   .cv-summary { font-size: 8.8pt; color: #222; max-width: none; }
   .cv-note { font-size: 7.8pt; margin-bottom: 3pt; }
 
-  .job { margin-bottom: 4.5pt; break-inside: avoid; page-break-inside: avoid; }
+  .job { margin-bottom: 3.5pt; break-inside: avoid; page-break-inside: avoid; }
   .job-head h3 { font-size: 9.6pt; }
   .job-dates { font-size: 8pt; color: #444; }
   .job-org { font-size: 8.6pt; color: #7a4d10; margin-bottom: 1.5pt; }
@@ -276,7 +276,7 @@ a { color: inherit; }
   .edu-school { font-size: 8.4pt; color: #333; }
   .edu-years { font-size: 8pt; color: #555; }
   .edu { gap: 3.5pt; }
-  .cv-foot { margin-top: 7pt; padding-top: 4pt; font-size: 8pt; color: #555; break-inside: avoid; }
+  .cv-foot { margin-top: 4pt; padding-top: 3pt; font-size: 8pt; color: #555; break-inside: avoid; }
 
   .cv-block h2 { break-after: avoid; page-break-after: avoid; }
   section { break-inside: auto; }
