@@ -1,0 +1,283 @@
+/* ==========================================================================
+   Ralph Marion Dacuycuy - resume / CV sheet
+   Doubles as the source document for the downloadable PDF.
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('../fonts/instrument-serif-latin-400.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/inter-latin-var.woff2') format('woff2');
+  font-weight: 100 900; font-style: normal; font-display: swap;
+}
+
+:root {
+  --paper: #ffffff;
+  --desk: #eae5dc;
+  --text: #171614;
+  --muted: #5b564e;
+  --faint: #857e73;
+  --accent: #8f5a14;
+  --rule: #ded7cb;
+  --font-display: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--desk);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+h1, h2, h3, p, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+a { color: inherit; }
+
+:where(a):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute; left: 50%; top: 0; transform: translate(-50%, -120%);
+  z-index: 20; background: var(--accent); color: #fff;
+  padding: 0.6rem 1.1rem; font-size: 0.85rem; font-weight: 600;
+  text-decoration: none; border-radius: 0 0 6px 6px;
+}
+.skip-link:focus { transform: translate(-50%, 0); }
+
+/* ---------------- screen chrome ---------------- */
+.page-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(234, 229, 220, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+.page-bar-inner {
+  width: min(100% - 2.5rem, 820px);
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 0.85rem;
+}
+.back-link, .dl-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.86rem;
+  font-weight: 550;
+  text-decoration: none;
+  color: var(--muted);
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: color 0.6s ease, background-color 0.6s ease, border-color 0.6s ease;
+}
+.back-link:hover { color: var(--text); background: rgba(0, 0, 0, 0.05); transition-duration: 0.2s; }
+.dl-link {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.dl-link:hover { background: var(--accent); color: #fff; transition-duration: 0.2s; }
+
+/* ---------------- the sheet ---------------- */
+.sheet {
+  width: min(100% - 2.5rem, 820px);
+  margin: 2.5rem auto 4rem;
+  background: var(--paper);
+  padding: clamp(2rem, 5vw, 3.4rem);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 12px 40px rgba(0, 0, 0, 0.09);
+}
+
+.cv-head { border-bottom: 2px solid var(--text); padding-bottom: 1.1rem; margin-bottom: 1.6rem; }
+.cv-head h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 6vw, 2.9rem);
+  line-height: 1.05;
+  letter-spacing: -0.018em;
+}
+.cv-title {
+  font-size: 0.95rem;
+  font-weight: 550;
+  color: var(--accent);
+  margin-top: 0.3rem;
+}
+.cv-contact {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.cv-contact a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--rule); }
+.cv-contact a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.cv-contact .sep { color: var(--faint); margin-inline: 0.45rem; }
+
+.cv-block { margin-bottom: 1.7rem; }
+.cv-block h2 {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent);
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 0.9rem;
+}
+.cv-summary { font-size: 0.92rem; color: var(--muted); max-width: 72ch; }
+.cv-note { font-size: 0.82rem; color: var(--faint); margin-bottom: 0.6rem; }
+
+.job { margin-bottom: 1.15rem; }
+.job:last-child { margin-bottom: 0; }
+.job-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.2rem 1rem;
+}
+.job-head h3 { font-size: 1.02rem; font-weight: 650; letter-spacing: -0.005em; }
+.job-dates {
+  font-size: 0.8rem;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.job-org { font-size: 0.88rem; color: var(--accent); font-weight: 550; margin-bottom: 0.35rem; }
+.job ul { display: grid; gap: 0.2rem; }
+.job li {
+  position: relative;
+  padding-left: 0.95rem;
+  font-size: 0.89rem;
+  color: var(--muted);
+}
+.job li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.62em;
+  width: 5px; height: 1px;
+  background: var(--accent);
+}
+
+.skills { display: flex; flex-wrap: wrap; gap: 0.35rem 0.5rem; }
+.skills li {
+  font-size: 0.85rem;
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 0.2rem 0.6rem;
+}
+
+.certs { display: grid; gap: 0.5rem; }
+.certs li { font-size: 0.89rem; color: var(--muted); }
+.cert-title { font-weight: 650; color: var(--text); }
+.cert-verify {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--faint);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.cv-foot {
+  margin-top: 1.4rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.83rem;
+  color: var(--faint);
+}
+
+.edu { display: grid; gap: 0.7rem; }
+.edu li { display: grid; gap: 0.05rem; }
+.edu-award { font-size: 0.93rem; font-weight: 600; }
+.edu-school { font-size: 0.87rem; color: var(--muted); }
+.edu-years { font-size: 0.8rem; color: var(--faint); font-variant-numeric: tabular-nums; }
+
+@media (min-width: 640px) {
+  .edu li {
+    grid-template-columns: minmax(0, 1fr) 110px;
+    align-items: baseline;
+    gap: 0.05rem 1rem;
+  }
+  .edu-award { grid-column: 1; }
+  .edu-school { grid-column: 1; }
+  .edu-years { grid-column: 2; grid-row: 1 / span 2; text-align: right; }
+}
+
+/* ==========================================================================
+   Print / PDF
+   ========================================================================== */
+@page {
+  size: A4;
+  margin: 10mm 13mm;
+}
+
+@media print {
+  html, body { background: #fff; }
+  body { font-size: 9pt; line-height: 1.36; color: #000; }
+
+  /* Wide tracking makes PDF text extract one character at a time, which trips
+     up ATS parsers. Keep headings uppercase but only lightly spaced. */
+  .cv-block h2 { letter-spacing: 0.07em; }
+
+  .page-bar, .skip-link { display: none !important; }
+
+  .sheet {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+    background: #fff;
+  }
+
+  a { text-decoration: none; color: #000; }
+  .cv-contact a { border-bottom: none; color: #000; }
+
+  .cv-head { padding-bottom: 5pt; margin-bottom: 6pt; border-bottom-width: 1.5pt; }
+  .cv-head h1 { font-size: 21pt; }
+  .cv-title { font-size: 9pt; color: #7a4d10; margin-top: 1pt; }
+  .cv-contact { font-size: 8pt; color: #333; margin-top: 3pt; line-height: 1.45; }
+
+  .cv-block { margin-bottom: 5.5pt; }
+  .cv-block h2 { font-size: 7.8pt; color: #7a4d10; margin-bottom: 4.5pt; padding-bottom: 2pt; }
+  .cv-summary { font-size: 8.8pt; color: #222; max-width: none; }
+  .cv-note { font-size: 7.8pt; margin-bottom: 3pt; }
+
+  .job { margin-bottom: 4.5pt; break-inside: avoid; page-break-inside: avoid; }
+  .job-head h3 { font-size: 9.6pt; }
+  .job-dates { font-size: 8pt; color: #444; }
+  .job-org { font-size: 8.6pt; color: #7a4d10; margin-bottom: 1.5pt; }
+  .job li { font-size: 8.6pt; color: #222; padding-left: 8pt; }
+  .job ul { gap: 0; }
+
+  .skills { gap: 2.5pt 3pt; }
+  .skills li { font-size: 8.4pt; color: #222; padding: 0.5pt 4pt; }
+  .certs { gap: 3pt; }
+  .certs li { font-size: 8.6pt; color: #222; }
+  .cert-verify { font-size: 7.6pt; color: #555; letter-spacing: -0.01em; }
+  .edu-award { font-size: 9pt; }
+  .edu-school { font-size: 8.4pt; color: #333; }
+  .edu-years { font-size: 8pt; color: #555; }
+  .edu { gap: 3.5pt; }
+  .cv-foot { margin-top: 7pt; padding-top: 4pt; font-size: 8pt; color: #555; break-inside: avoid; }
+
+  .cv-block h2 { break-after: avoid; page-break-after: avoid; }
+  section { break-inside: auto; }
+}
